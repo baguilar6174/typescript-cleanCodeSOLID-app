@@ -4,7 +4,7 @@
 
 Los nombres de variables, funciones, clases, etc, deben estar escritos en inglés y deben ser pronunciables, además deben expresar de manera clara a que se hace referencia con el nombre (**no necesitas ahorrar letras en los nombres de tus variables**).
 
-```js
+```typescript
 // uso incorrecto
 const n = 53;
 const tx = .15;
@@ -12,7 +12,7 @@ const cat = "Shirts";
 const ddmmyyyy = new Date();
 ```
 
-```js
+```typescript
 // uso correcto
 const numberOfunits = 53;
 const tax = .15;
@@ -24,7 +24,7 @@ const birthDate = new Date();
 
 Debemos evitar que los nombres no contengas información técnica (evitar la relación con la tecnología que se este usando)
 
-```js
+```typescript
 // uso incorrecto
 class AbstractUser {} // la palabra `abstract` es parte de la teconología
 class UserMixin {}
@@ -32,7 +32,7 @@ class UserImplementation {}
 interface UserInterface {} // ya sabemos que se trata de una interfaz por la misma declaración
 ```
 
-```js
+```typescript
 // uso correcto
 class User {}
 interface User {}
@@ -40,7 +40,7 @@ interface User {}
 
 El uso de comentario en el código es un indicador de que posiblemente los nombres otorgados no son los adecuados.
 
-```js
+```typescript
 // ❌ Archivos a evaluar
 const fs = [
     { id: 1, f: false },
@@ -90,4 +90,138 @@ const max = 6;
 const maxClassesPerStudent = 6;
 ```
 
+## Nombres según tipo de dato
 
+### Arreglos
+
+Sabes que es una lista iterable de elementos, por lo general, todos los elementos tienen una característica en común por lo que pluralizar su nombre es recomendado.
+
+```typescript
+// 🟥 bad
+const fruit: string[] = ["apple", "banana", "orange"];
+
+// 🟧 regular
+const fruitList: string[] = ["apple", "banana", "orange"];
+
+// 🟨 good
+const fruits: string[] = ["apple", "banana", "orange"];
+
+// 🟩 best
+const fruitName: string[] = ["apple", "banana", "orange"];
+```
+
+### Booleans
+
+Usualmente tienen dos valores (excepto que tengan `undefined` | `null`, etc). El uso de prefijos como: `is`, `has`, `can`, puede ser de mucha ayuda a que el nombre tenga mucho más sentido semántico.
+
+**Se procura que su significado siempre sea positivo y evitar las negaciones en el nombre**
+
+```typescript
+// 🟥 bad
+const open = true;
+const write = true;
+const fruit = true;
+const active = false;
+const noValues = true;
+const notEmpty = true;
+
+// 🟩 best
+const isOpen = true;
+const canWrite = true;
+const hasFruit = true;
+const isActive = false;
+const hasValues = false;
+const isEmpty = false;
+```
+
+### Números
+
+Se pueden usar muchos términos para nombrar variables numéricas, se puede hacer uso de palabras como: `min`, `max`, `total`, `of` para dar un mejor signiticado.
+
+```typescript
+// 🟥 bad
+const fruits = 3;
+const cars = 10;
+
+// 🟩 best
+const maxFruits = 5;
+const minFruits = 2;
+const totalFruits = 4;
+const totalOfCars = 10;
+```
+
+### Funciones
+
+Los nombres de las funciones deben representar acciones, por lo general deben construirse usando el verbo que representa la acción seguido de un sustantivo. El nombre de la función debe expresar lo que hace, pero también debe abstenerse de toda la implementación de la función.
+
+```typescript
+// 🟥 bad
+createUserIfNotExits();
+updateUserIfNotEmpty();
+sendEmailIfFieldsValid();
+
+// 🟩 best
+createUser();
+updateUser();
+sendEmail();
+```
+
+## Ejemplos
+
+```typescript
+// ❌arreglo de temperaturas celsius
+const arrayOfNums = [33.6, 12.34];
+// ✅
+const temperaturesCelsius = [33.6, 12.34];
+
+// ❌ Dirección ip del servidor
+const ip = '123.123.123.123';
+// ✅
+const serverIp = '123.123.123.123';
+
+
+// ❌ Listado de usuarios
+const people = [{id: 1, email: 'bryan@google.com'},{ id: 2, email: 'alexander@google.com' }];
+// ✅
+const users = [...]
+
+
+// ❌ Listado de emails de los usuarios
+const emails = people.map( u => u.email );
+// ✅
+const userEmails = people.map( user => user.email );
+
+// ❌ Variables booleanas de un video juego
+const jump = false;
+const run = true;
+const noTieneItems = true;
+const loading = false;
+// ✅
+const canJump = false;
+const canRun = true;
+const hasItems = false;
+const isLoading = false;
+
+// ❌ Obtiene los libros
+function book() {}
+// ✅
+function getBooks() {}
+
+// ❌ obtiene libros desde un URL
+function BooksUrl( u: string) {}
+// ✅
+function getBooksByUrl( url: string) {}
+
+
+// ❌ obtiene el área de un cuadrado basado en sus lados
+function areaCuadrado( s: number ) {}
+// ✅
+function getSquareArea( side: number ) {}
+
+
+// ❌ imprime el trabajo
+function printJobIfJobIsActive() {}
+// ✅
+function printJob() {}
+
+```
