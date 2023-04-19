@@ -154,6 +154,21 @@ const totalOfCars = 10;
 
 Los nombres de las funciones deben representar acciones, por lo general deben construirse usando el verbo que representa la acción seguido de un sustantivo. El nombre de la función debe expresar lo que hace, pero también debe abstenerse de toda la implementación de la función.
 
+**Los nombres de las funciones tienen que hacer exactamente lo que dice su nombre**
+
+```typescript
+// 🟥 bad
+function sendEmail(): boolean {
+  // verify if user exists
+  ...
+  // create user in DB
+  ...
+  // if OK, send email
+  ...
+  return true;
+}
+```
+
 ```typescript
 // 🟥 bad
 createUserIfNotExits();
@@ -166,7 +181,13 @@ updateUser();
 sendEmail();
 ```
 
-## Ejemplos
+#### Argumentos y Parámetros
+
+Se recomienda limitar a tres parámetros ya que si existen más de tres se tiende a complicar la lectura y posición que se deben enviar en los argumentos. Además, se recomienda ordenar las propiedades alfabéticamente.
+
+**Si se nececita enviar más de tres argumentos se recomienda el uso de objectos, o si se usa un lenguaje tipado como TS, usar interfaces o tipos**
+
+### Ejemplos
 
 ```typescript
 // ❌arreglo de temperaturas celsius
@@ -224,4 +245,26 @@ function printJobIfJobIsActive() {}
 // ✅
 function printJob() {}
 
+```
+
+### Clases
+
+Las clases deben tener nombres formados por un sustantivo o frases de sustantivo, es importante evitar nombres genéricos, ya que esto implica que las clases realicen demasiado trabajo o más trabajo que el que deberían hacer.
+
+**Se procura usar UpperCamelCase**
+
+Para determinar si un nombre de clase es bueno se debe responder tres preguntas:
+
+1. ¿Qué exactamente hace la clase?
+2. ¿Cómo exactamente esta clase realiza cierta tarea?
+3. ¿Hay algo específico sobre su ubicación?
+
+```typescript
+// 🟥 bad
+class Manager {}
+class Data {}
+class Info {}
+class Individual {}
+class Processor {}
+class SpecialMonsterView {}
 ```
