@@ -290,25 +290,3 @@ function printJobIfJobIsActive() {}
 function printJob() {}
 
 ```
-
-### Clases
-
-Las clases deben tener nombres formados por un sustantivo o frases de sustantivo, es importante evitar nombres genéricos, ya que esto implica que las clases realicen demasiado trabajo o más trabajo que el que deberían hacer.
-
-**Se procura usar UpperCamelCase**
-
-Para determinar si un nombre de clase es bueno se debe responder tres preguntas:
-
-1. ¿Qué exactamente hace la clase?
-2. ¿Cómo exactamente esta clase realiza cierta tarea?
-3. ¿Hay algo específico sobre su ubicación?
-
-```typescript
-// 🟥 bad
-class Manager {}
-class Data {}
-class Info {}
-class Individual {}
-class Processor {}
-class SpecialMonsterView {}
-```

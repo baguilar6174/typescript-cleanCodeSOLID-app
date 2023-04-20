@@ -40,6 +40,7 @@ yarn dev
 - Variable names
 - Names for functions
 - DRY principle
+- Good practices with classes
 
 ## Stay in touch
 
