@@ -187,6 +187,50 @@ Se recomienda limitar a tres parámetros ya que si existen más de tres se tiend
 
 **Si se nececita enviar más de tres argumentos se recomienda el uso de objectos, o si se usa un lenguaje tipado como TS, usar interfaces o tipos**
 
+#### Otras recomendaciones
+
+- Simplicidad es fundamental
+- Funciones de tamaño reducido
+- Funciones de una sola línea sin causar complejidad
+- Menos de `20` líneas
+- Evitar el uso del `else`
+- Priorizar el uso de la condicional ternaria
+
+```typescript
+// 🟥 bad
+const getPayAmount = ({ isDead = false, isSeparated = true, isRetired = false }) => {
+  let result;
+  if ( isDead ) {
+    result = 1500;
+  } else {
+    if ( isSeparated ) {
+      result = 2500;
+    } else {
+      if ( isRetired ) {
+        result = 3000;
+      } else {
+        result = 4000; 
+      }
+    }
+  }
+  return result;
+}
+
+// 🟩 best
+type getPaymentAmountParams = {
+  isDead: boolean;
+  isSeparated: boolean;
+  isRetired: boolean
+}
+
+const getPayAmount = (params: getPaymentAmountParams): number => {
+  const {isDead = false, isSeparated = true, isRetired = false} = params;
+  if ( isDead ) return 1500;
+  if ( isSeparated ) return 2500;
+  return isRetired ? 3000 : 4000;
+}
+```
+
 ### Ejemplos
 
 ```typescript
