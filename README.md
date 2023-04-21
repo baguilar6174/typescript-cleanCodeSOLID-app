@@ -41,6 +41,7 @@ yarn dev
 - Names for functions
 - DRY principle
 - Good practices with classes
+- STUPID (code smells)
 
 ## Stay in touch
 
