@@ -42,6 +42,12 @@ yarn dev
 - DRY principle
 - Good practices with classes
 - STUPID (code smells)
+- SOLID principles
+  * Single responsibility
+  * Open/closed
+  * Liskov substitution
+  * Interface segregation
+  * Dependency inversion
 
 ## Stay in touch
 
