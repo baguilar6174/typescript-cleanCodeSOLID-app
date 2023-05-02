@@ -2,37 +2,7 @@
 
 This repository contains exercises on good programming practices, clean code and SOLID principles.
 
-## Installation
-
-Get code using
-
-```
-git clone https://github.com/baguilar6174/typescript-cleancodesolid-app.git
-```
-
-Step 2:
-
-Install the necessary libraries (make sure you have node >= 16 and yarn)
-
-```
-yarn
-```
-
-Step 6:
-
-Runs in the development mode
-
-```
-yarn dev
-```
-
-## My process
-
-### Build with
-
-- Typescript
-
-### What I learned
+## What I learned
 
 - What is technical debt?
 - How is technical debt repaid?
